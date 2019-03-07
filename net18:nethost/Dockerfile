@@ -1,7 +1,7 @@
 FROM fedora:27
 LABEL author="@edt ASIX M11-SAD"
 LABEL description="SSH Server Curs 2018-2019"
-RUN dnf -y install xinetd iproute iputils nmap uw-imap procps net-tools passwd httpd vsftpd 
+RUN dnf -y install xinetd iproute iputils nmap uw-imap procps net-tools passwd httpd vsftpd openssh-server 
 RUN mkdir /opt/docker
 COPY * /opt/docker/
 RUN chmod +x /opt/docker/startup.sh /opt/docker/install.sh
