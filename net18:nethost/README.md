@@ -10,6 +10,7 @@
  * serveis del paquet uw-imap: ipop3(110), imap(143), pop3s (995), imaps (993).
  * servei web httpd(80).
  * serveis xinetd redireccions: 2007 (7), 2013 (13) i 2080 (80). També 3080 (www.gmail.com 80)
+ * servei vsftpd(20,21).
 
 Test
 ```
