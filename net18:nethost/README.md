@@ -2,8 +2,7 @@
 ## @edt ASIX M11-SAD Curs 2018-2019
 
 **edtasixm11/net18:nethost** Servidor de serveis de xarxa, usant xinetd, redireccions, httpd, 
-  vsftp, ftpd, etc
-
+  vsftp, ftpd, etc. S'utilitza per fer tests de connectivitat, xinetd, tcpwrappers, túnels ssh i iptables.
 
  * serveis xinetd: echo(7), daytime(13) i chargen(19) stream (tcp).
  * serveis xinetd: echo(7), daytime(13) i chargen(19) dgram (udp).
@@ -13,6 +12,7 @@
  * serveis xinetd redireccions bnd al loopback: 4007 (7), 4013 (13), 4080 (80).
  * servei vsftpd(20,21).
  * servei sshd(22).
+ * servei tftp (69).
  
 Test
 ```
@@ -24,6 +24,18 @@ Test
 ```
 
 Execució:
+
+Sense mapejar els ports
 ```
-docker run --rm --name nethost.edt.org    -h nethost.edt.org  --net mynet -d edtasixm11/net18:nethost
+docker netweork create mynet
+docker run --rm --name nethost -h nethost --net mynet -d edtasixm11/net18:nethost
 ```
+
+Amb ports mapejats
+```
+docker netweork create mynet
+docker run --rm --name nethost -h nethost --net mynet -p 7:7 -p 13:13 -p 80:80 -d edtasixm11/net18:nethost
+```
+
+
+
